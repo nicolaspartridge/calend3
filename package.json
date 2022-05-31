@@ -1,0 +1,28 @@
+{
+  "name": "calend3",
+  "version": "1.0.0",
+  "description": "Inspired by the famous [Calendly Etiquette Tweet](https://twitter.com/lessin/status/1486477359717187589) this project aims to solve the byzantine calendly problem by using proof-of-availability consensus mechanisms. We will be autmating real time auctions for your time to ensure maximum ROI on meetings. It works by auctioning off an NFT for each time slot, sold to the highest bidder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaspartridge/calend3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolaspartridge/calend3/issues"
+  },
+  "homepage": "https://github.com/nicolaspartridge/calend3#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.7"
+  }
+}
