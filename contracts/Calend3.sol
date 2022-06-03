@@ -2,24 +2,19 @@
 pragma solidity 0.8.14;
 
 contract Calend3 {
-  uint rate;
-  address owner;
+    uint rate;
+    address public owner;
+    
+    constructor() {
+        owner = msg.sender;
+    }
 
-  constructor() {
-    owner = msg.sender;
-  }
-
-  modifier onlyOwner() {
-      require(msg.sender == address(this));
-      _;
-  }
-
-  function getRate() public view returns (uint) {
-        return rate;
-  }
-  
-  function setRate(uint _rate) public onlyOwner {
-      rate = _rate;
-  }
-  
+    function getRate() public view returns (uint) {
+         return rate;
+    }   
+    
+    function setRate(uint _rate) public {
+        require(msg.sender == owner, "Only the owner can set the rate");
+        rate = _rate;
+    }
 }
