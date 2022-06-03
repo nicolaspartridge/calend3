@@ -3,7 +3,7 @@ pragma solidity 0.8.14;
 
 contract Calend3 {
     uint rate;
-    address public owner;
+    address payable owner;
     Appointment[] appointments;
 
     struct Appointment {
@@ -15,7 +15,7 @@ contract Calend3 {
     }
     
     constructor() {
-        owner = msg.sender;
+        owner = payable(msg.sender);
     }
 
     function getRate() public view returns (uint) {
@@ -31,13 +31,17 @@ contract Calend3 {
       return appointments;
     }
 
-    function createAppointment(string memory _title, uint _startTime, uint _endTime) public {
+    function createAppointment(string memory _title, uint _startTime, uint _endTime) public payable {
       Appointment memory appointment;
       appointment.title = _title;
       appointment.attendee = msg.sender;
       appointment.startTime = _startTime;
       appointment.endTime = _endTime;
       appointment.amontPaid = ((_endTime - _startTime) / 60 * rate);
+
+      require(msg.value >= appointment.amontPaid, "You did not meet the correct horuly rate.");
+      (bool success,) = owner.call{value: msg.value}(""); // Sends ETH to the owner
+      require(success, "Failed to send payment");
 
       appointments.push(appointment);
     }
