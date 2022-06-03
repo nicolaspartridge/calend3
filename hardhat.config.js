@@ -20,7 +20,7 @@ module.exports = {
   solidity: "0.8.14",
   networks: {
     goerli: {
-      url: "API_URL",
+      url: "test",
       accounts: ["Private Key"]
     }
   }
