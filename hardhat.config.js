@@ -20,7 +20,7 @@ module.exports = {
   solidity: "0.8.14",
   networks: {
     goerli: {
-      url: "https://eth-goerli.alchemyapi.io/v2/UJCxZ-Psp_HWvbVmUaItIeP50Bl9CES5",
+      url: "API_URL",
       accounts: ["Private Key"]
     }
   }
