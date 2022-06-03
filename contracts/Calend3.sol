@@ -4,9 +4,18 @@ pragma solidity 0.8.14;
 contract Calend3 {
     uint rate;
     address public owner;
+    Appointment[] appointments;
     
     constructor() {
         owner = msg.sender;
+    }
+
+    struct Appointment {
+      string title;
+      address attendee;
+      uint startTime;
+      uint endTime;
+      uint amontPaid;
     }
 
     function getRate() public view returns (uint) {
