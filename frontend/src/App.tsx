@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-
 import detectEthereumProvider from "@metamask/detect-provider";
-
 import Calendar from "./components/Calendar";
+import "./App.css";
 
 function App() {
   const [account, setAccount] = useState<String>("");
@@ -43,13 +42,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>calend3</h1>
-      <div>web3 appointment scheduling</div>
-      {account.length ? (
-        <Calendar />
-      ) : (
-        <button onClick={connect}>Connect wallet</button>
-      )}
+      <header className="App-header">
+        <h1>calend3</h1>
+        <p id="slogan">web3 appointment scheduler</p>
+      </header>
+      {!account && <button onClick={connect}>connect wallet</button>}
+      {account && <Calendar account={account} />}
     </div>
   );
 }
